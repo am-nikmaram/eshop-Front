@@ -1,0 +1,119 @@
+
+    
+    <!--  ==========  -->
+    <!--  = Breadcrumbs =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a routerLink="">وبمارکت</a>
+                        </li>
+                        <li><span class="icon-chevron-right"></span></li>
+                        <li>
+                            <a>ثبت نام</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="push-up top-equal blocks-spacer-last">
+            <div class="row">
+                
+                <!--  ==========  -->
+                <!--  = Main Title =  -->  
+                <!--  ==========  -->
+                
+                <div class="span12">
+                    <div class="title-area">
+                        <h1 class="inline">ثبت نام</h1>
+                    </div>
+                </div>
+                
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span8 single single-page">
+                    
+                   <hr />
+                    
+                    <!--  ==========  -->
+                    <!--  = Register Form =  -->
+                    <!--  ==========  -->
+                    <section class="contact-form-container">
+                        
+                        <h3 class="push-down-25">ثبت نام</h3>
+                        
+                        <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()" class="form form-inline form-contact">
+                     <!--      <p class="push-down-20">
+                                <label >نام <span class="red-clr bold">*</span></label>
+                                <input type="text" tabindex="1" class="span12" formControlName="fullName">
+                            </p>
+                      --> 
+                      <app-input  [label]="'نام'" [placeholder]="'لطفا نام را وارد کنید '" [control]="$any(registerForm).get('fullName')" 
+                      [type]="'text'" [tabindex]="1"></app-input>
+                     <!--      <p class="push-down-20">
+                                <label >نام کاربری<span class="red-clr bold">*</span></label>
+                                <input type="text" tabindex="2" class="span12"  formControlName="userName">
+                            </p>
+                     --> 
+                     <app-input  [label]="'نام کاربری*'" [placeholder]="'لطفا نام کاربری را وارد کنید'" [control]="$any(registerForm).get('userName')" 
+                     [type]="'text'" [tabindex]="2"></app-input>
+                      <!--     <p class="push-down-20">
+                                <label>ایمیل <span class="red-clr bold">*</span></label>
+                                <input type="email" tabindex="3" class="span12" formControlName="email">
+                            </p>
+                       --> 
+                       <app-input  [label]="'ایمیل'" [placeholder]="'لطفا نام ایمیل را وارد کنید'" [control]="$any(registerForm).get('email')" 
+                       [type]="'text'" [tabindex]="3"></app-input>
+                        <!--    <p class="push-down-20">
+                                <label>پسورد <span class="red-clr bold">*</span></label>
+                                <input type="password" tabindex="4" class="span12" formControlName="password">
+                            </p>
+                            -->
+                        <app-input  [label]="'پسورد'" [placeholder]="'لطفا پسورد را وارد کنید'" [control]="$any(registerForm).get('password')" 
+                            [type]="'password'" [tabindex]="4"></app-input>
+                         <!--  <p class="push-down-20">
+                                <label>تکرار پسورد <span class="red-clr bold">*</span></label>
+                                <input type="password" tabindex="5" class="span12" formControlName="confirmpassword">
+                            </p>
+                            --> 
+                        <app-input  [label]="'تکرار پسورد '" [placeholder]="'لطفا تکرار پسورد را وارد کنید'" [control]="$any(registerForm).get('confirmpassword')" 
+                            [type]="'password'" [tabindex]="5"></app-input>
+                            <p>
+                                <button class="btn btn-primary bold" [disabled]="registerForm.invalid" type="submit" tabindex="6" id="submit">ثبت نام </button>
+                            </p>
+                        </form>
+                    </section>
+                    
+                    <hr />
+                    
+                </section> <!-- /main content -->
+                
+                <!--  ==========  -->
+                <!--  = Sidebar =  -->
+                <!--  ==========  -->
+                <aside class="span4">
+       
+                    
+                </aside> <!-- /sidebar -->
+
+            </div>
+        </div>
+    </div> 
+
+
+    <swal
+  #sweetalert
+  title="خطا"
+  text=""
+  icon="error"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="ok()">
+</swal>

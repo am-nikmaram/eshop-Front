@@ -1,0 +1,94 @@
+
+    
+    <!--  ==========  -->
+    <!--  = Breadcrumbs =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a routerLink="">وبمارکت</a>
+                        </li>
+                        <li><span class="icon-chevron-right"></span></li>
+                        <li>
+                            <a> ورود</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="push-up top-equal blocks-spacer-last">
+            <div class="row">
+                
+                <!--  ==========  -->
+                <!--  = Main Title =  -->  
+                <!--  ==========  -->
+                
+                <div class="span12">
+                    <div class="title-area">
+                        <h1 class="inline"> ورود</h1>
+                    </div>
+                </div>
+                
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span8 single single-page">
+                    
+                   <hr />
+                    
+                    <!--  ==========  -->
+                    <!--  = Register Form =  -->
+                    <!--  ==========  -->
+                    <section class="contact-form-container">
+                        
+                        <h3 class="push-down-25">ورود</h3>
+                        
+                        <form [formGroup]="loginForm" (ngSubmit)="submitloginForm()" class="form form-inline form-contact">
+
+                            <app-input  [label]="'نام کاربری*'" [placeholder]="'لطفا نام کاربری را وارد کنید'" [control]="$any(loginForm).get('userName')" 
+                            [type]="'text'" [tabindex]="1"></app-input>
+
+                        <app-input  [label]="'پسورد'" [placeholder]="'لطفا پسورد را وارد کنید'" [control]="$any(loginForm).get('password')" 
+                            [type]="'password'" [tabindex]="2"></app-input>
+
+                            <p>
+                                <button class="btn btn-primary bold" [disabled]="loginForm.invalid" type="submit" tabindex="3" id="submit">ورود </button>
+                            </p>
+
+                        </form>
+                    </section>
+                    
+                    <hr />
+                    
+                </section> <!-- /main content -->
+                
+                <!--  ==========  -->
+                <!--  = Sidebar =  -->
+                <!--  ==========  -->
+                <aside class="span4">
+       
+                    
+                </aside> <!-- /sidebar -->
+
+            </div>
+        </div>
+    </div> 
+
+
+  
+<swal
+  #sweetalert
+  title="خطا"
+  text=""
+  icon="error"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="ok()">
+</swal>
+

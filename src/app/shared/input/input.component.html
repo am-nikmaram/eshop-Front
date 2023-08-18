@@ -1,0 +1,22 @@
+<div class="field push-down-20">
+    <label class="label">{{label}}</label>
+    <div class="control">
+
+        <input class="input span12"  [ngClass]="{'is-danger': showErrors()}" [type]="type"
+            [formControl]="control" [placeholder]="placeholder" [tabIndex]="tabindex">
+    </div>
+    <ng-container *ngIf="showErrors()">
+        <div class="help is-danger" *ngIf="control?.errors?.['required']">value is required</div>
+        <div class="help is-danger" *ngIf="control?.errors?.['minlength']">
+            value from {{control.errors?.['minlength']?.actualLength}}
+            to : {{control.errors?.['minlength']?.requiredLength}}
+        </div>
+        <div class="help is-danger" *ngIf="control?.errors?.['maxlength']">
+            value from {{control.errors?.['maxlength']?.actualLength}}
+            to : {{control.errors?.['maxlength']?.requiredLength}}
+        </div>
+        <div class="help is-danger" *ngIf="control?.errors?.['email']">
+email address is incorrect
+        </div>
+    </ng-container>
+</div>
