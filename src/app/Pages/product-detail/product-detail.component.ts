@@ -63,7 +63,7 @@ this.productService.getProduct(productId).subscribe(p=>{
   if(p.isSuccess===true){
     this.productDetail=p.data;
     this.mainImage=this.imagePath+this.productDetail.product.imageName;
-    console.log("productResult is ",this.productDetail);
+   // console.log("productResult is ",this.productDetail);
   }else{
 this.router.navigate(['/']);
   }
@@ -73,7 +73,7 @@ this.router.navigate(['/']);
 
 getRelatedProduct(productId:number){
   this.productService.getRelatedProducts(productId).subscribe(result=>{
-    console.log("product Related is",result);
+   // console.log("product Related is",result);
     if(result.isSuccess==true){
       this.relatedProduct=result.data;
   }
@@ -82,7 +82,7 @@ getRelatedProduct(productId:number){
 
 getProductComment(productId:number){
   this.productService.getProductComment(productId).subscribe(res2=>{
-    console.log("comments of product are",res2);
+   // console.log("comments of product are",res2);
     this.productComment=res2.data;
   });
 }
@@ -107,7 +107,7 @@ addProductToOrder(){
 
     const productId=this.productDetail.product.id;
     const addProductToOrder=new AddProductToOrderDto(productId,this.count);
-    console.log("data will post to server is: ",addProductToOrder);
+   // console.log("data will post to server is: ",addProductToOrder);
     /* this.orderService.addProductToOrder(addProductToOrder).subscribe(res=>{
       console.log(res);
       this.deleteSwal.fire();
@@ -117,7 +117,7 @@ addProductToOrder(){
     */
    this.orderService.addProductToOrder(addProductToOrder).subscribe({
      next:(res)=>{
-      console.log("Result is successful and data is:",res);
+    //  console.log("Result is successful and data is:",res);
       this.deleteSwal.fire();
       this.updateOrderBasket();
     
@@ -144,7 +144,10 @@ decreasecount(){
 updateOrderBasket(){
   if(this.currentUser!=null || this.currentUser!=undefined){
     this.orderService.updateOrderBasket().subscribe({
-      next:(res)=>{console.log("data of update orderbasket is",res)},
+      next:(res)=>{
+        console.log("data of update orderbasket is",res);
+        this.orderService._setOrderDetails(res.data);
+      },
       error:(err)=>{console.log("error of update orderbasket is",err)}
     });
   }

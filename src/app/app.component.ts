@@ -25,7 +25,7 @@ this.authService.checkUserAuth().subscribe({
       console.log('sucessfuly loged in');
       const currentUser=new CurrentUser(res.data.userName,res.data.fullName);
       this.authService.setCurrentUser(currentUser);
-      this.setOrderBasketDetail();
+      
     }
     else{
       console.log('unsucessfuly loged in and cookie has removed.');
@@ -38,7 +38,7 @@ this.authService.checkUserAuth().subscribe({
   }
 });
 
-
+this.setOrderBasketDetail();
     };
    
   }
