@@ -27,7 +27,7 @@
                     <span class="light-clr qty">
                                     تعداد : {{orderDetail.count}}
                                     &nbsp;
-                                    <a href="#" class="icon-remove-sign" title="Remove Item"></a>
+                                    <a class="icon-remove-sign" title="Remove Item" (click)="removeItem(orderDetail.id)"></a>
                                 </span>
                   </div>
                   <div class="price">

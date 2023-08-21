@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { httpResponse } from "../DTOs/Http/HttpResponse";
 import { AddProductToOrderDto } from "../DTOs/Order/AddProductToOrderDto";
@@ -29,5 +29,12 @@ addProductToOrder(addProductToOrder:AddProductToOrderDto):Observable<httpRespons
 
 updateOrderBasket():Observable<httpResponse<OrderBasketDetail>>{
     return this.http.get<httpResponse<OrderBasketDetail>>("/api/v1/order/getorder");
+}
+
+
+removeItemOfOrder(orderDetailId:number):Observable<httpResponse<OrderBasketDetail>>{
+    let params=new HttpParams()
+    .set('orderItem',orderDetailId);
+    return this.http.get<httpResponse<OrderBasketDetail>>("/api/v1/order/removeitemfromorder/",{params});
 }
 }

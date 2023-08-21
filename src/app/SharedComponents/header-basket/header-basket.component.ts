@@ -21,8 +21,19 @@ export class HeaderBasketComponent implements OnInit {
       next:(res)=>{
         this.detail=res;
         console.log("detail of orderbasket is:",this.detail);
-        
       }
+    });
+  }
+  
+  removeItem(id:number){
+    console.log("number of will be delete form basket order",id);
+    this.orderService.removeItemOfOrder(id).subscribe({
+      next:(res)=>{
+        if(res.isSuccess){
+          this.detail=res.data;
+        }
+      },
+      error:(err)=>{console.log("an error has happen and data is:",err)}
     });
   }
 }
