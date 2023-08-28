@@ -14,9 +14,20 @@ import { CustomEncoder } from './custom-encoder.service';
 export class AuthService {
 
   private currentUser=new BehaviorSubject<CurrentUser>(null);
+  private loggedIn:boolean=false;
 
   setCurrentUser(user:CurrentUser):void{
     this.currentUser.next(user);
+    if(user!=null){
+      this.loggedIn=true;
+    }else{
+      this.loggedIn=false;
+    }
+  }
+
+  isAuthenticated(){
+    const promise=new Promise((resolve,resject)=>{resolve(this.loggedIn);});
+    return promise;
   }
 
   getCurrentUser():Observable<CurrentUser>{

@@ -9,6 +9,8 @@ import { ActivateAccountComponent } from './pages/activate-account/activate-acco
 import { ProductsComponent } from './pages/products/products.component';
 import { TestComponent } from './pages/test/test.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { AuthGuardService } from './Services/AuthGuardService';
+import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
 
 const routes: Routes = [
   {path:'',component:IndexComponent},
@@ -19,7 +21,7 @@ const routes: Routes = [
   {path:'activate-account',component:ActivateAccountComponent},
   {path:'products', component:ProductsComponent},
   {path:'products/:productId/:productName',component:ProductDetailComponent},
-  {path:'test',component:TestComponent}
+  {path:'user/edit',component:EditAccountComponent,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { CookieService } from 'ngx-cookie-service';
 import { map } from 'rxjs';
@@ -15,9 +15,10 @@ import { AuthService } from 'src/app/Services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
    public loginedData :ILoginUserAccount;
    @ViewChild('sweetalert') private sweetalert: SwalComponent;
+   retUrl:string="home";
 
 
   public loginForm= new FormGroup({
@@ -28,9 +29,20 @@ export class LoginComponent {
   /**
    *
    */
-  constructor(private authService:AuthService, private router:Router,private cookieService:CookieService) {
+  constructor(private authService:AuthService, 
+    private router:Router,
+    private cookieService:CookieService,
+    private activatedRoute:ActivatedRoute) {
 
   }
+  ngOnInit(): void {
+    this.activatedRoute.queryParamMap
+    .subscribe(params => {
+this.retUrl = params.get('retUrl'); 
+console.log( 'Return URL is: '+ this.retUrl);
+});
+  }
+
   submitloginForm(){
 
     if(this.loginForm.valid){
@@ -46,11 +58,15 @@ this.authService.loginUser(loginData).subscribe(res=>{
   //this.temp=this.loginedData.Data.fullName as string;
   //console.log(res.data.fullName);
   if (res.isSuccess){
-  const currentUser=new CurrentUser(res.data.userName,res.data.fullName);
+  const currentUser=new CurrentUser(res.data.userName,res.data.fullName,"");
   this.authService.setCurrentUser(currentUser);
   this.cookieService.set('eshopcookie',res.data.access_token,res.data.expires_in*60);
   this.loginForm.reset();
-  this.router.navigate(['/']);
+  if(this.retUrl!=null){
+    this.router.navigate([this.retUrl]);
+  }else{
+    this.router.navigate(['/']);
+  }
 
 }
 else{

@@ -23,7 +23,7 @@ this.authService.checkUserAuth().subscribe({
     if(res.isSuccess)
     {
       console.log('sucessfuly loged in');
-      const currentUser=new CurrentUser(res.data.userName,res.data.fullName);
+      const currentUser=new CurrentUser(res.data.userName,res.data.fullName,res.data.address);
       this.authService.setCurrentUser(currentUser);
       
     }

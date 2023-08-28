@@ -34,6 +34,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { Component } from '@angular/core';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { HeaderBasketComponent } from './SharedComponents/header-basket/header-basket.component';
+import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { HeaderBasketComponent } from './SharedComponents/header-basket/header-b
     SingleProductComponent,
     TestComponent,
     ProductDetailComponent,
-    HeaderBasketComponent
+    HeaderBasketComponent,
+    EditAccountComponent
   ],
   imports: [
     BrowserModule,

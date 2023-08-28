@@ -8,5 +8,6 @@ export interface IcheckUserAuthResult {
         userName: string;
         fullName: string;
         email: string;
+        address:string
     };
 }

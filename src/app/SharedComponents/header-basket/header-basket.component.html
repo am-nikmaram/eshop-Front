@@ -4,8 +4,8 @@
           <div class="span3">
             <div class="cart-container" id="cartContainer">
               <div class="cart">
-                <p class="items">سبد خرید <span class="dark-clr" *ngIf="detail.orderDetails">({{detail.orderDetails.length}})</span></p>
-                <p class="dark-clr hidden-tablet" *ngIf="detail.orderDetails">{{detail.totalPrice}}</p>
+                <p class="items">سبد خرید <span class="dark-clr" *ngIf="detail && detail.orderDetails.length>0">({{detail.orderDetails.length}})</span></p>
+                <p class="dark-clr hidden-tablet" *ngIf="detail && detail.orderDetails.length>0">{{detail.totalPrice}}</p>
                 <a href="checkout-step-1.html" class="btn btn-danger">
                   <!-- <span class="icon icons-cart"></span> -->
                   <i class="icon-shopping-cart"></i>
@@ -42,7 +42,7 @@
                   <div class="line">
                     <div class="row-fluid">
                       <div class="span6">جمع کل :</div>
-                      <div class="span6 align-right size-16">{{detail.totalPrice}}تومان</div>
+                      <div class="span6 align-right size-16" *ngIf="detail && detail.orderDetails.length>0">{{detail.totalPrice}}تومان</div>
                     </div>
                   </div>
                 </div>

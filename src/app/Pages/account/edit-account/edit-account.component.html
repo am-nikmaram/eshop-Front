@@ -1,0 +1,114 @@
+
+    <!--  ==========  -->
+    <!--  = Breadcrumbs =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="index.html">وبمارکت</a>
+                        </li>
+                        <li><span class="icon-chevron-right"></span></li>
+                        <li>
+                            <a href="contact.html">ارتباط با ما</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="push-up top-equal blocks-spacer-last">
+            <div class="row">
+                
+                <!--  ==========  -->
+                <!--  = Main Title =  -->
+                <!--  ==========  -->
+                
+                <div class="span12">
+                    <div class="title-area">
+                        <h1 class="inline"><span class="light">با ما</span> ارتباط برقرار کنید.</h1>
+                    </div>
+                </div>
+                
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span8 single single-page">
+
+                    
+                    <!--  ==========  -->
+                    <!--  = Contact Form =  -->
+                    <!--  ==========  -->
+                    <section class="contact-form-container">
+                        
+                        <h3 class="push-down-25"><span class="light">ویرایش کاربر</span> </h3>
+                        
+                        <form [formGroup]="editUser" (ngSubmit)="editUserSubmit()"  id="commentform" class="form form-inline form-contact">
+         
+
+                            <p class="push-down-20">
+                                <label for="author">نام<span class="red-clr bold">*</span></label>
+                                <br>
+                                <input type="text" aria-required="true" tabindex="1" size="40" value="" id="author" name="author" formControlName="fullName">
+                            </p>
+                            <p class="text-error" *ngIf="editUser.controls['fullName'].invalid && (editUser.controls['fullName'].dirty || editUser.controls['fullName'].touched)">
+لطفا نام کامل خود را وارد کنید
+                            </p>
+                            <p class="text-error" *ngIf="editUser.controls['fullName'].errors?.['maxlength'] && (editUser.controls['address'].dirty || editUser.controls['address'].touched)">
+                                تعداد کاراکتر بیشتر از حد مجاز است
+                            </p>
+                            <p class="push-down-20">
+                                <label for="author">آدرس<span class="red-clr bold">*</span></label>
+                                <br>
+                                <input type="text" aria-required="true" tabindex="2" size="40" value="" id="author" name="author" formControlName="address">
+                            </p>
+                            <p class="text-error" *ngIf="editUser.controls['address'].errors?.['required'] && (editUser.controls['address'].dirty || editUser.controls['address'].touched)">
+                                لطفا آدرس خود را وارد کنید
+                            </p>
+                            <p class="text-error" *ngIf="editUser.controls['address'].errors?.['maxlength'] && (editUser.controls['address'].dirty || editUser.controls['address'].touched)">
+                                تعداد کاراکتر بیشتر از حد مجاز است
+                            </p>
+                  
+                            <p>
+                                <button class="btn btn-primary bold" type="submit" tabindex="3" id="submit">ویرایش</button>
+                            </p>
+
+                        </form>
+                    </section>
+
+
+
+                </section> <!-- /main content -->
+                
+                <!--  ==========  -->
+                <!--  = Sidebar =  -->
+                <!--  ==========  -->
+                <aside class="span4">
+                    
+                    <!--  ==========  -->
+                    <!--  = Opening Times Widget =  -->
+                    <!--  ==========  -->
+                    <div class="sidebar-item opening-time" id="opening_time-4">
+                        <div class="underlined">
+                            <h3><span class="light">پنل کاربری</span> </h3>
+                        </div>
+
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                          </ul>
+
+                    </div>
+                    
+
+                    
+                </aside> <!-- /sidebar -->
+
+            </div>
+        </div>
+    </div> <!-- /container -->
