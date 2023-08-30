@@ -11,7 +11,8 @@ export interface ILoginUserAccount{
         fullName:string,
         refresh_token:string,
         token_type:string,
-        userName:string
+        userName:string,
+        address:string
     }
 }
 export interface Iaccess_token{

@@ -25,6 +25,7 @@ this.authService.checkUserAuth().subscribe({
       console.log('sucessfuly loged in');
       const currentUser=new CurrentUser(res.data.userName,res.data.fullName,res.data.address);
       this.authService.setCurrentUser(currentUser);
+      this.setOrderBasketDetail();
       
     }
     else{
@@ -38,7 +39,6 @@ this.authService.checkUserAuth().subscribe({
   }
 });
 
-this.setOrderBasketDetail();
     };
    
   }

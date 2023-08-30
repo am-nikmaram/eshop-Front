@@ -35,6 +35,8 @@ import { Component } from '@angular/core';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { HeaderBasketComponent } from './SharedComponents/header-basket/header-basket.component';
 import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { EditAccountComponent } from './pages/account/edit-account/edit-account.
     SharedModule,
     MatSliderModule,
     FormsModule,
+    MatButtonModule,
+    MatDialogModule,
     NgxLoadingModule.forRoot({
       fullScreenBackdrop:true
     }),

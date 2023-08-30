@@ -7,6 +7,7 @@ import { ILoginUserAccount } from '../DTOs/Account/ILoginUserAccount';
 import { LoginUserDTO } from '../DTOs/Account/LoginUserDTO';
 import { RegisterUserDTO } from '../DTOs/Account/ResisterUserDTO';
 import { CustomEncoder } from './custom-encoder.service';
+import { editUserDto } from '../DTOs/Account/EditUserDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,9 @@ return this.http.post<any>('/api/v1/users',registerData);
     console.log(params);
   
     return this.http.get('/api/v1/Users/activate-user', { params: params });
+  }
+
+  updateUser(editUser: editUserDto):Observable<any>{
+return this.http.put<any>('/api/v1/users',editUser);
   }
 }
