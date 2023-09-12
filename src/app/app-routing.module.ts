@@ -11,6 +11,7 @@ import { TestComponent } from './pages/test/test.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { AuthGuardService } from './Services/AuthGuardService';
 import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
+import { BasketUserComponent } from './pages/account/basket-user/basket-user.component';
 
 const routes: Routes = [
   {path:'',component:IndexComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:'activate-account',component:ActivateAccountComponent},
   {path:'products', component:ProductsComponent},
   {path:'products/:productId/:productName',component:ProductDetailComponent},
-  {path:'user/edit',component:EditAccountComponent,canActivate:[AuthGuardService]}
+  {path:'user/edit',component:EditAccountComponent,canActivate:[AuthGuardService]},
+  {path:'user/basket',component:BasketUserComponent,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({

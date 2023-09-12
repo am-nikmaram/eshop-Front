@@ -37,6 +37,8 @@ import { HeaderBasketComponent } from './SharedComponents/header-basket/header-b
 import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { MenuAccountComponent } from './pages/account/menu-account/menu-account.component';
+import { BasketUserComponent } from './pages/account/basket-user/basket-user.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import {MatButtonModule} from '@angular/material/button';
     TestComponent,
     ProductDetailComponent,
     HeaderBasketComponent,
-    EditAccountComponent
+    EditAccountComponent,
+    MenuAccountComponent,
+    BasketUserComponent
   ],
   imports: [
     BrowserModule,

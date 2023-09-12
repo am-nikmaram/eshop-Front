@@ -1,0 +1,102 @@
+
+    <!--  ==========  -->
+    <!--  = Breadcrumbs =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="index.html">وبمارکت</a>
+                        </li>
+                        <li><span class="icon-chevron-right"></span></li>
+                        <li>
+                            <a href="contact.html">ارتباط با ما</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="push-up top-equal blocks-spacer-last">
+            <div class="row">
+                
+                <!--  ==========  -->
+                <!--  = Main Title =  -->
+                <!--  ==========  -->
+                
+                <div class="span12">
+                    <div class="title-area">
+                        <h1 class="inline"><span class="light">با ما</span> ارتباط برقرار کنید.</h1>
+                    </div>
+                </div>
+                
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span8 single single-page">
+
+                    
+                    <!--  ==========  -->
+                    <!--  = Contact Form =  -->
+                    <!--  ==========  -->
+                    <section class="contact-form-container">
+                        
+                        <h3 class="push-down-25"><span class="light">سبد خرید </span> </h3>
+                        
+
+                        <table class="table table-bordered table-striped" *ngIf="orderBasketDetail!=null && orderBasketDetail.orderDetails.length>0">
+                            <thead>
+                              <tr>
+                                <th>محصول</th>
+                                <th>تعداد</th>
+                                <th>قیمت کل</th>
+                                <th>دستورات</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of orderBasketDetail.orderDetails">
+                                <td>
+                                  <span >{{item.productName}}</span>
+                                </td>
+                                <td>
+                                    <span >{{item.count}}</span>
+                                  </td>
+                                <td>
+                                  <span>{{item.price*item.count}} تومان</span>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" (click)="removeOrderDetail(item.id)">حذف</a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                    قیمت کل :  {{orderBasketDetail.totalPrice}}  تومان
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+
+
+
+
+
+
+                    </section>
+
+
+
+                </section> <!-- /main content -->
+                
+                <!--  ==========  -->
+                <!--  = Sidebar =  -->
+                <!--  ==========  -->
+<app-menu-account></app-menu-account>
+
+            </div>
+        </div>
+    </div> <!-- /container -->
